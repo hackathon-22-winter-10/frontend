@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import Navigation from './components/Navigation.vue'
+import GraphRender from './components/graphRender.vue'
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
