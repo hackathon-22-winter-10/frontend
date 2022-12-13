@@ -7,7 +7,14 @@ const isPhone = isMobile().phone
   <div :class="[isPhone ? $style.phone : $style.pc, $style.navigation]">
     <div :class="$style.linkWrapper">
       <div :class="$style.link">
-        <RouterLink :class="$style.linkText" to="/">Home</RouterLink>
+        <div style="display: table; height: 100%; width: 100%">
+          <RouterLink :class="$style.linkText" to="/">Home</RouterLink>
+        </div>
+      </div>
+      <div :class="$style.link">
+        <div style="display: table; height: 100%; width: 100%">
+          <RouterLink :class="$style.linkText" to="/">Home</RouterLink>
+        </div>
       </div>
     </div>
   </div>
@@ -32,7 +39,7 @@ const isPhone = isMobile().phone
   width: calc(100vw / 3);
   max-width: 15rem;
   height: 100%;
-  display: table;
+  display: inline-block;
 }
 .link:hover {
   background-color: rgb(255, 129, 26);
