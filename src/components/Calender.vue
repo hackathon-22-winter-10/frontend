@@ -11,6 +11,7 @@ const firstDay = startOfWeek(subWeeks(new Date(), 4))
         <DayBlock
           :date="addDays(addWeeks(firstDay, i - 1), j - 1)"
           :parsentage="0.3 + Math.random() * 0.7"
+          :isFirstDay="i === 1 && j === 1"
         />
       </div>
     </div>
