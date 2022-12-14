@@ -1,0 +1,2 @@
+startup: npm install && npm run build
+https: hard
