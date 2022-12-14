@@ -1,2 +1,5 @@
-startup: npm install && npm run build
+startup: npm install && npm run build && 	rm -rf public && cp -r dist public
+http_proxy: 8080
 https: hard
+branch:
+  main: null
