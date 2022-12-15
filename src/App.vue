@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Calender from './components/Calender.vue'
 import HelloWorld from './components/HelloWorld.vue'
+import Navigation from './components/Navigation.vue'
 </script>
 
 <template>
@@ -16,8 +16,8 @@ import HelloWorld from './components/HelloWorld.vue'
       />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
-  <Calender />
+  <Navigation />
+  <RouterView />
 </template>
 
 <style module lang="scss">
