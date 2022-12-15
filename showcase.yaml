@@ -1,4 +1,4 @@
-startup: npm install && npm run build && 	rm -rf dist
+startup: npm install && npm i @esbuild/linux-x64 && npm run build && rm -rf dist
 http_proxy: 8080
 https: hard
 work_dir: 'dist'
