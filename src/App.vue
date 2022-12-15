@@ -1,23 +1,24 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
 import Navigation from './components/Navigation.vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" :class="$style.logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img
-        src="./assets/vue.svg"
-        :class="[$style.logo, $style.vue]"
-        alt="Vue logo"
-      />
-    </a>
+  <div style="position: absolute; top: 0; left: 0; width: 100vw">
+    <div style="margin-top: 3rem">
+      <a href="https://vitejs.dev" target="_blank">
+        <img src="/vite.svg" :class="$style.logo" alt="Vite logo" />
+      </a>
+      <a href="https://vuejs.org/" target="_blank">
+        <img
+          src="./assets/vue.svg"
+          :class="[$style.logo, $style.vue]"
+          alt="Vue logo"
+        />
+      </a>
+    </div>
+    <Navigation />
+    <RouterView />
   </div>
-  <Navigation />
-  <RouterView />
 </template>
 
 <style module lang="scss">

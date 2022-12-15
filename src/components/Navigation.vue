@@ -13,7 +13,9 @@ const isPhone = isMobile().phone
       </div>
       <div :class="$style.link">
         <div style="display: table; height: 100%; width: 100%">
-          <RouterLink :class="$style.linkText" to="/">Home</RouterLink>
+          <RouterLink :class="$style.linkText" to="/calender"
+            >Calender</RouterLink
+          >
         </div>
       </div>
     </div>
