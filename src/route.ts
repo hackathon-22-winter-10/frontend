@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CalenderVue from './components/Calender.vue'
-import HelloWorldVue from './components/HelloWorld.vue'
+import graphRenderVue from './components/graphRender.vue'
 import MainViewVue from './components/MainView.vue'
 
 export const router = createRouter({
@@ -15,6 +15,11 @@ export const router = createRouter({
       path: '/calender',
       name: 'calender',
       component: CalenderVue
+    },
+    {
+      path: '/graph',
+      name: 'graph',
+      component: graphRenderVue
     }
   ]
 })

@@ -18,6 +18,11 @@ const isPhone = isMobile().phone
           >
         </div>
       </div>
+      <div :class="$style.link">
+        <div style="display: table; height: 100%; width: 100%">
+          <RouterLink :class="$style.linkText" to="/graph">Graph</RouterLink>
+        </div>
+      </div>
     </div>
   </div>
 </template>
