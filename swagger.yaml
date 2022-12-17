@@ -1,0 +1,116 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: e-h-2-10-api
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  '/todays_menu':
+    get:
+      tags:
+        - 'todays_menu'
+      summary: '本日のメニュー取得'
+      parameters:
+        - name: 'id'
+          in: 'query'
+          description: 'ユーザーID'
+          required: true
+          schema:
+            type: 'string'
+        - name: 'user_name'
+          in: 'query'
+          description: 'ユーザー名'
+          required: true
+          schema:
+            type: 'string'
+        - name: 'level'
+          in: 'query'
+          description: '運動のレベル'
+          required: true
+          schema:
+            type: 'string'
+        - name: 'city'
+          in: 'query'
+          description: '都市名'
+          required: true
+          schema:
+            type: 'string'
+      responses:
+        200:
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  sport:
+                    type: 'string'
+                  duration:
+                    type: 'string'
+                example:
+                  sport: 'ランニング'
+                  duration: '30分'
+        404:
+          description: 'NotFound'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  status:
+                    type: 'string'
+                    example: 'NOT_FOUND'
+                  message:
+                    type: 'string'
+                    example: 'NOT_FOUND'
+
+  '/details':
+    post:
+      summary: '本日のメニュー登録'
+      tags:
+        - 'details'
+      description: '本日のメニュー情報をDBに登録する'
+      requestBody:
+        description: It contains the transaction's id and the cancel reason
+        required: true
+        content:
+          application/json:
+            schema:
+              type: 'object'
+              properties:
+                id:
+                  type: 'string'
+                  example: 'P1'
+                user_name:
+                  type: 'string'
+                  example: 'hogehoge'
+                sport:
+                  type: 'string'
+                  example: 'ランニング'
+                duration:
+                  type: 'string'
+                  example: '00:30:00'
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  id:
+                    type: 'integer'
+                    example: 'P1'
+                  name:
+                    type: 'string'
+                    example: 'hogehoge'
+        400:
+          description: 'Bad Request'
+          content:
+            application/json:
+              schema:
+                type: 'object'
+                properties:
+                  error:
+                    type: 'string'
+                    example: 'bad request'
