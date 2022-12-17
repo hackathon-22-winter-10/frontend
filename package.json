@@ -17,8 +17,8 @@
     "sass": "^1.56.2",
     "scss": "^0.2.4",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6",
-    "vue-chartjs": "^5.0.1"
+    "vue-chartjs": "^5.0.1",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.5.2",
