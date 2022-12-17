@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@esbuild/win32-x64": "^0.16.8",
     "chart.js": "^4.0.1",
     "cjs-module": "^1.5.0",
     "create-vite": "^4.0.0",

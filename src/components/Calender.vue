@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { addDays, addWeeks, subWeeks, startOfWeek, format } from 'date-fns'
+import { addDays, addWeeks, subWeeks, startOfWeek } from 'date-fns'
 import DayBlock from './calender/DayBlock.vue'
 const firstDay = startOfWeek(subWeeks(new Date(), 4))
 </script>
