@@ -37,7 +37,9 @@ onMounted(async () => {
         alert('データの取得に失敗しました')
       }
     })
-    .catch(() => alert('データの取得に失敗しました'))
+    .catch(() => {
+      //alert('データの取得に失敗しました')
+    })
 })
 </script>
 

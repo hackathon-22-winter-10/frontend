@@ -19,6 +19,7 @@ import { summaryListToPointList } from '../lib/graph/summaryListToPointList'
 import type { DaySummary } from '../lib/graph/summaryListToPointList'
 import { computed, onMounted, ref } from 'vue'
 import axios from 'axios'
+import { addDays, isBefore, startOfWeek, subDays, subWeeks } from 'date-fns'
 
 ChartJS.register(
   Title,
@@ -29,24 +30,13 @@ ChartJS.register(
   CategoryScale,
   LinearScale
 )
-const dataList: DaySummary[] = [
-  {
-    date: new Date(),
-    calorie: 20
-  },
-  {
-    date: new Date(),
-    calorie: 40
-  },
-  {
-    date: new Date(),
-    calorie: 50
-  },
-  {
-    date: new Date(),
-    calorie: 0
-  }
-]
+const dataList: DaySummary[] = []
+for (let i = 0; i < 30; i++) {
+  dataList.push({
+    date: subDays(new Date(), 30 - i),
+    calorie: Math.random() * 1000
+  })
+}
 export default {
   components: {
     Line
@@ -67,10 +57,12 @@ export default {
           ) {
             DL.value = res.data.slice(0, Math.min(30, res.data.length))
           } else {
-            alert('データの取得に失敗しました')
+            //alert('データの取得に失敗しました')
           }
         })
-        .catch(() => alert('データの取得に失敗しました'))
+        .catch(() => {
+          //alert('データの取得に失敗しました')
+        })
     })
     return { DL, chartData }
   }

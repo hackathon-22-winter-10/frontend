@@ -63,6 +63,9 @@ function error() {
   isActiveGeoLocation.value = true
 }
 async function postDetail(id: number, name: string, duration: number) {
+  menus.value = menus.value.filter(menu => {
+    return menu.id != id && menu.name != name && menu.duration != duration
+  })
   await axios
     .post('/api/details', {
       id: id,
@@ -72,7 +75,9 @@ async function postDetail(id: number, name: string, duration: number) {
     .then(res => {
       setData(res.data)
     })
-    .catch(() => alert('something error'))
+    .catch(() => {
+      //alert('something error')
+    })
 }
 
 const options = {
@@ -93,7 +98,7 @@ onMounted(() => {
 </script>
 <template>
   <div v-if="isActiveGeoLocation">位置情報が取得できません</div>
-  <div v-else>緯度:{{ latitude }}、経度:{{ longitude }}</div>
+  <!-- <div v-else>緯度:{{ latitude }}、経度:{{ longitude }}</div> -->
   <div v-for="menu in menus" :v-key="menu">
     <MenuVue :menu="menu" @done="postDetail" />
   </div>

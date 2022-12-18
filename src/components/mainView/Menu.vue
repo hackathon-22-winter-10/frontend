@@ -6,14 +6,14 @@ const emits = defineEmits<{
   (e: 'done', id: number, name: string, duration: number): void
 }>()
 const alart = () => {
-  alert(
-    '今日は' +
-      props.menu.name +
-      'を' +
-      props.menu.duration +
-      getUnit(props.menu.name) +
-      'だけやった'
-  )
+  // alert(
+  //   '今日は' +
+  //     props.menu.name +
+  //     'を' +
+  //     props.menu.duration +
+  //     getUnit(props.menu.name) +
+  //     'だけやった'
+  // )
 }
 const menuTypeList = getMenuTypeList()
 const getUnit = (menu: MenuType): string => {

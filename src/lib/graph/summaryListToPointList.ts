@@ -12,7 +12,11 @@ export const summaryListToPointList = (
   const days: string[] = []
   const list: number[] = []
   for (const summary of summarys) {
-    if (format(summary.date, 'd') === '1') {
+    if (
+      format(summary.date, 'd') === '1' ||
+      format(summary.date, 'd').slice(-1) === '0' ||
+      format(summary.date, 'd').slice(-1) === '5'
+    ) {
       days.push(format(summary.date, 'M/d'))
     } else {
       days.push('')
