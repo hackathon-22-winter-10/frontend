@@ -1,6 +1,5 @@
 <template>
   <Line :data="chartData" />
-  <button @click="DL[0].calorie += 10">+10</button>
 </template>
 
 <script lang="ts">
