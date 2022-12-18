@@ -10,7 +10,9 @@ const DL = ref<DaySummary[]>([])
 for (let i = 0; i < 35; i++) {
   DL.value.push({
     date: addDays(firstDay, 34 - i),
-    calorie: isBefore(addDays(firstDay, 34 - i), new Date()) ? Math.random() : 0
+    calorie: isBefore(addDays(firstDay, 34 - i), new Date())
+      ? Math.random() * 1000
+      : 0
   })
 }
 onMounted(async () => {
@@ -46,9 +48,9 @@ onMounted(async () => {
         <DayBlock
           :date="DL[35 - (i - 1) * 7 - j].date"
           :parsentage="
-            DL[35 - (i - 1) * 7 - j].calorie == 0
+            DL[35 - (i - 1) * 7 - j].calorie === 0
               ? 0
-              : 0.3 + DL[35 - (i - 1) * 7 - j].calorie * 0.7
+              : 0.3 + (DL[35 - (i - 1) * 7 - j].calorie / 1000) * 0.7
           "
           :isFirstDay="i === 1 && j === 1"
         />

@@ -18,7 +18,7 @@ const menus: Ref<Menu[]> = ref<Menu[]>([
   },
   {
     id: 2,
-    name: 'push ups',
+    name: 'push-ups',
     duration: 20
   }
 ])

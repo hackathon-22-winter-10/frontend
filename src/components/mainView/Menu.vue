@@ -21,7 +21,7 @@ const getUnit = (menu: MenuType): string => {
     case 'running':
     case 'walking':
       return 'km'
-    case 'push ups':
+    case 'push-ups':
     case 'squat':
       return '回'
     default:
