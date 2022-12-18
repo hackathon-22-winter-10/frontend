@@ -1,9 +1,10 @@
 export type Menu = {
-  menu: MenuType
-  amount: number
+  id: number
+  name: MenuType
+  duration: number
 }
 const menuTypeList = ['running', 'walking', 'squat', 'push ups'] as const
-type MenuType = typeof menuTypeList[number]
+export type MenuType = typeof menuTypeList[number]
 export const getMenuTypeList = () => {
   return menuTypeList
 }

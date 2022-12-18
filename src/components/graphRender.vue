@@ -16,8 +16,9 @@ import {
   LinearScale
 } from 'chart.js'
 import { summaryListToPointList } from '../lib/graph/summaryListToPointList'
-import type { daySummary } from '../lib/graph/summaryListToPointList'
-import { computed, ref } from 'vue'
+import type { DaySummary } from '../lib/graph/summaryListToPointList'
+import { computed, onMounted, ref } from 'vue'
+import axios from 'axios'
 
 ChartJS.register(
   Title,
@@ -28,26 +29,22 @@ ChartJS.register(
   CategoryScale,
   LinearScale
 )
-const dataList: daySummary[] = [
+const dataList: DaySummary[] = [
   {
-    day: '12-11',
-    calorie: 20,
-    something: 3
+    date: new Date(),
+    calorie: 20
   },
   {
-    day: '12-12',
-    calorie: 40,
-    something: 3
+    date: new Date(),
+    calorie: 40
   },
   {
-    day: '12-13',
-    calorie: 50,
-    something: 3
+    date: new Date(),
+    calorie: 50
   },
   {
-    day: '12-14',
-    calorie: 0,
-    something: 3
+    date: new Date(),
+    calorie: 0
   }
 ]
 export default {
@@ -59,6 +56,22 @@ export default {
     const chartData = computed(() =>
       summaryListToPointList(DL.value, 'calorie')
     )
+    onMounted(async () => {
+      await axios
+        .get('/api/cal')
+        .then(res => {
+          if (
+            Array.isArray(res.data) &&
+            'date' in res.data[0] &&
+            'calorie' in res.data[0]
+          ) {
+            DL.value = res.data.slice(0, Math.min(30, res.data.length))
+          } else {
+            alert('データの取得に失敗しました')
+          }
+        })
+        .catch(() => alert('データの取得に失敗しました'))
+    })
     return { DL, chartData }
   }
 }
