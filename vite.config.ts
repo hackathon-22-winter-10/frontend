@@ -10,7 +10,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://exercise-app-kari-backend.trap.games', // 前回のサーバーのアドレスと自分のポートの組にする
+        target: 'https://exercise-app-kari-backend.trap.games',
         changeOrigin: true,
         rewrite: path => path.replace(/^\/api/, '/')
       }
