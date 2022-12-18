@@ -1,17 +1,22 @@
-type summaryKey = 'calorie' | 'something'
-export type daySummary = {
+import { format } from 'date-fns'
+type summaryKey = 'calorie'
+export type DaySummary = {
   [key in summaryKey]: number
 } & {
-  day: string
+  date: Date
 }
 export const summaryListToPointList = (
-  summarys: daySummary[],
+  summarys: DaySummary[],
   key: summaryKey
 ) => {
   const days: string[] = []
   const list: number[] = []
   for (const summary of summarys) {
-    days.push(summary.day)
+    if (format(summary.date, 'd') === '1') {
+      days.push(format(summary.date, 'M/d'))
+    } else {
+      days.push('')
+    }
     list.push(summary[key])
   }
   return {
