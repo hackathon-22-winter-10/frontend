@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import axios from 'axios'
-import { addDays, addWeeks, subWeeks, startOfWeek, isBefore } from 'date-fns'
+import {
+  addDays,
+  addWeeks,
+  subWeeks,
+  startOfWeek,
+  isBefore,
+  endOfWeek
+} from 'date-fns'
 import { onMounted, ref } from 'vue'
 import DayBlock from './calender/DayBlock.vue'
 import type { DaySummary } from '../lib/graph/summaryListToPointList'
@@ -26,13 +33,19 @@ onMounted(async () => {
       ) {
         for (let i = 1; 1 < 7 - new Date().getDay(); i++) {
           DL.value.push({
-            date: addDays(new Date(), i),
+            date: addDays(new Date(), 7 - i),
             calorie: 0
           })
         }
         DL.value = DL.value.concat(
           res.data.slice(0, Math.min(35, res.data.length))
         )
+        for (let i = 0; i < 35 - DL.value.length; i++) {
+          DL.value.push({
+            date: addDays(endOfWeek(new Date()), DL.value.length + i),
+            calorie: 0
+          })
+        }
       } else {
         alert('データの取得に失敗しました')
       }

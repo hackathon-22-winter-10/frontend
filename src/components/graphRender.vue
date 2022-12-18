@@ -18,7 +18,7 @@ import { summaryListToPointList } from '../lib/graph/summaryListToPointList'
 import type { DaySummary } from '../lib/graph/summaryListToPointList'
 import { computed, onMounted, ref } from 'vue'
 import axios from 'axios'
-import { addDays, isBefore, startOfWeek, subDays, subWeeks } from 'date-fns'
+import { subDays } from 'date-fns'
 
 ChartJS.register(
   Title,

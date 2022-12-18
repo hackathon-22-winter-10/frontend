@@ -1,3 +1,4 @@
+type: runtime
 startup: npm install && npm i @esbuild/linux-x64 && npm run build && rm -rf dist
 http_proxy: 8080
 https: hard
