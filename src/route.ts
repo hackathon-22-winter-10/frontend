@@ -1,10 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import CalenderVue from './components/Calender.vue'
 import graphRenderVue from './components/graphRender.vue'
 import MainViewVue from './components/MainView.vue'
 
 export const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
